@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1cgx30lv4sug"]
+
+[ext_resource type="Texture2D" uid="uid://b88m81c6qwjjc" path="res://Level1/umbrellaAttackSprites.png" id="1_sjdl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o153j"]
+atlas = ExtResource("1_sjdl0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1soko"]
+atlas = ExtResource("1_sjdl0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e52g4"]
+atlas = ExtResource("1_sjdl0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cys51"]
+atlas = ExtResource("1_sjdl0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7goh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o153j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1soko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e52g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cys51")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6l7j"]
+radius = 13.0384
+
+[node name="raindropProjectile" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 5
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7goh2")
+autoplay = "default"
+frame_progress = 0.344358
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_y6l7j")

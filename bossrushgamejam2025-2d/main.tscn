@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb8tfpehen60"]
+
+[ext_resource type="Texture2D" uid="uid://cu8kwljr1u1vv" path="res://placeholderMainMenu.png" id="1_0uv07"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0uv07")
+stretch_mode = 1
+
+[node name="Play" type="Button" parent="Node"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -141.0
+offset_right = 199.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="Node"]
+custom_minimum_size = Vector2(400, 140)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = 33.0
+offset_right = 199.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"

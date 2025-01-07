@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxk83kany2356"]
+
+[ext_resource type="Texture2D" uid="uid://bx075hqnwsf6i" path="res://Level1/target.png" id="1_63yng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s00oe"]
+atlas = ExtResource("1_63yng")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmm4y"]
+atlas = ExtResource("1_63yng")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8014w"]
+atlas = ExtResource("1_63yng")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2xb7"]
+atlas = ExtResource("1_63yng")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hak61"]
+atlas = ExtResource("1_63yng")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd621"]
+atlas = ExtResource("1_63yng")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kamva"]
+atlas = ExtResource("1_63yng")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps7al"]
+atlas = ExtResource("1_63yng")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6boy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s00oe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmm4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8014w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2xb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hak61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd621")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kamva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps7al")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="target" type="AnimatedSprite2D"]
+texture_filter = 5
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s6boy")
+autoplay = "default"
+frame_progress = 0.602606
