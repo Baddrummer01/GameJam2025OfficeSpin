@@ -1,7 +1,57 @@
-[gd_scene load_steps=31 format=3 uid="uid://dlxck3lxxee1q"]
+[gd_scene load_steps=54 format=3 uid="uid://dlxck3lxxee1q"]
 
 [ext_resource type="Script" path="res://generalscenes/chair_player.gd" id="1_inru1"]
 [ext_resource type="Texture2D" uid="uid://dhoxffcj0ajrl" path="res://playerChair2.png" id="2_dg52p"]
+[ext_resource type="Texture2D" uid="uid://dxny73ymwf2yg" path="res://boostmode.png" id="2_hol6f"]
+[ext_resource type="Texture2D" uid="uid://dfmiefsnwfto5" path="res://playerChairDamage.png" id="3_3xa6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idgig"]
+atlas = ExtResource("2_hol6f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umib2"]
+atlas = ExtResource("2_hol6f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn8fl"]
+atlas = ExtResource("2_hol6f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lgen"]
+atlas = ExtResource("2_hol6f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck55s"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohqrf"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ghwr"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rbht"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw2a3"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m1yr"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfkf1"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wurkq"]
+atlas = ExtResource("3_3xa6t")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntnop"]
 atlas = ExtResource("2_dg52p")
@@ -34,6 +84,38 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pgog"]
 atlas = ExtResource("2_dg52p")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hev7"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68ili"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o60cb"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_087g5"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1t20"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b17fo"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81s1k"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87btl"]
+atlas = ExtResource("2_dg52p")
+region = Rect2(480, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqbt2"]
 atlas = ExtResource("2_dg52p")
@@ -111,6 +193,52 @@ region = Rect2(480, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_idgig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umib2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lgen")
+}],
+"loop": true,
+"name": &"boost_mode",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck55s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohqrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ghwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rbht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw2a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m1yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfkf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wurkq")
+}],
+"loop": true,
+"name": &"damage_taken",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ntnop")
 }, {
 "duration": 1.0,
@@ -152,6 +280,35 @@ animations = [{
 "loop": true,
 "name": &"move_up",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hev7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68ili")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o60cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_087g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1t20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b17fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81s1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87btl")
+}],
+"loop": true,
+"name": &"spin_almost",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -223,6 +380,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hq6pf"]
+radius = 40.05
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5nog"]
 radius = 21.5058
 
@@ -234,10 +394,22 @@ script = ExtResource("1_inru1")
 texture_filter = 5
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_s2qvh")
-animation = &"spin_low"
+animation = &"damage_taken"
 autoplay = "default"
-frame_progress = 0.0970795
+frame_progress = 0.199273
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="ChairPlayer"]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChairPlayer/Hurtbox"]
+scale = Vector2(0.333333, 0.333333)
+shape = SubResource("CircleShape2D_hq6pf")
+debug_color = Color(0.991543, 0, 0.26417, 0.42)
+
+[node name="GroundCollision" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_b5nog")
+
+[connection signal="area_entered" from="ChairPlayer/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="ChairPlayer/Hurtbox" to="." method="_on_hurtbox_body_entered"]

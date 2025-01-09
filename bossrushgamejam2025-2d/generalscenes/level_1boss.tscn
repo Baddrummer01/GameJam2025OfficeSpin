@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://bhnothahvptbf"]
+[gd_scene load_steps=37 format=3 uid="uid://bhnothahvptbf"]
 
+[ext_resource type="Script" path="res://generalscenes/level_1_boss.gd" id="1_csegg"]
 [ext_resource type="Texture2D" uid="uid://ry1775wgwqxr" path="res://Level1/umbrellaBoss.png" id="1_u2ijk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hm6o"]
@@ -140,10 +141,34 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_umtuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hm6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4euw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7k30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umtuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hm6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4euw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7k30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umtuh")
 }],
 "loop": true,
 "name": &"damaged",
-"speed": 2.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -247,18 +272,38 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tixes"]
+radius = 28.3823
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv0c7"]
 radius = 97.0824
 
 [node name="LEVEL1BOSS" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_csegg")
 
 [node name="TargetAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 5
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_gh037")
+animation = &"damaged"
 autoplay = "default"
-frame_progress = 0.220915
+frame = 10
+frame_progress = 0.593156
+
+[node name="Hitbox" type="Area2D" parent="TargetAnim"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetAnim/Hitbox"]
+shape = SubResource("CircleShape2D_tixes")
+debug_color = Color(0.979953, 0, 0.38376, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vv0c7")
+disabled = true
+
+[node name="HitCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="TargetAnim/Hitbox" to="." method="_on_hitbox_area_entered"]

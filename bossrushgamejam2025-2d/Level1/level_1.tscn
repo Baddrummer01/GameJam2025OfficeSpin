@@ -1,19 +1,18 @@
-[gd_scene load_steps=19 format=4 uid="uid://c5y8ojbtqxs3g"]
+[gd_scene load_steps=18 format=4 uid="uid://c5y8ojbtqxs3g"]
 
 [ext_resource type="Texture2D" uid="uid://p7c5lsbl5wks" path="res://Level1/levelbackground.png" id="1_66s1q"]
 [ext_resource type="Texture2D" uid="uid://bsqvf1w6ct8r2" path="res://Level1/tilemap1-Sheet.png" id="2_atbnm"]
 [ext_resource type="PackedScene" uid="uid://dlxck3lxxee1q" path="res://generalscenes/chairPlayer.tscn" id="3_4yq6w"]
 [ext_resource type="PackedScene" uid="uid://bhnothahvptbf" path="res://generalscenes/level_1boss.tscn" id="4_r2i3b"]
-[ext_resource type="Script" path="res://generalscenes/level_1_boss.gd" id="5_rggpu"]
 [ext_resource type="PackedScene" uid="uid://bxk83kany2356" path="res://generalscenes/targetAnim.tscn" id="6_ibrlq"]
 [ext_resource type="PackedScene" uid="uid://b1cgx30lv4sug" path="res://generalscenes/raindropATK.tscn" id="7_qmt4o"]
 [ext_resource type="PackedScene" uid="uid://bta858wsqgsjd" path="res://generalscenes/lightning_atk.tscn" id="8_qdeqx"]
 [ext_resource type="Texture2D" uid="uid://c7bfwi3jgy142" path="res://healthbarInside5.png" id="9_dyiga"]
-[ext_resource type="Texture2D" uid="uid://c046e5jhvqek7" path="res://healthbar.png" id="9_hrdq3"]
 [ext_resource type="Texture2D" uid="uid://bnayrnf45nmu0" path="res://healthbarhealth.png" id="10_pcunl"]
 [ext_resource type="Texture2D" uid="uid://d33v282lem3cg" path="res://healthbarInside4.png" id="11_6vnql"]
 [ext_resource type="Texture2D" uid="uid://bcw5luv60clpu" path="res://healthbarstamina.png" id="11_u2rw0"]
 [ext_resource type="Script" path="res://Level1/rotation_bar.gd" id="11_ugj26"]
+[ext_resource type="Texture2D" uid="uid://dvcny438j45p5" path="res://healthbar2.png" id="13_ddimx"]
 [ext_resource type="Texture2D" uid="uid://8duxhykicw36" path="res://bossHealthBarBase.png" id="14_is1kk"]
 [ext_resource type="Texture2D" uid="uid://cgr8htbco7weu" path="res://bossHealthBar.png" id="15_5qddf"]
 
@@ -78,15 +77,25 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="SpinTimer" type="Timer" parent="Node/chairPlayer"]
-wait_time = 3.0
+wait_time = 3.3
 
 [node name="AttackTimer" type="Timer" parent="Node/chairPlayer"]
-wait_time = 9.0
+wait_time = 10.0
+one_shot = true
+
+[node name="EndBoostTimer" type="Timer" parent="Node/chairPlayer"]
+one_shot = true
+
+[node name="StaminaBarTimer" type="Timer" parent="Node/chairPlayer"]
+wait_time = 0.1
+autostart = true
+
+[node name="InvulnFrames" type="Timer" parent="Node/chairPlayer"]
+wait_time = 3.0
 one_shot = true
 
 [node name="LEVEL1BOSS" parent="Node" instance=ExtResource("4_r2i3b")]
 position = Vector2(554, 224)
-script = ExtResource("5_rggpu")
 
 [node name="raindropProjectile" parent="Node" instance=ExtResource("7_qmt4o")]
 position = Vector2(458, 482)
@@ -111,9 +120,10 @@ texture_filter = 1
 offset_right = 256.0
 offset_bottom = 64.0
 scale = Vector2(2, 2)
-value = 100.0
+max_value = 3.0
+value = 3.0
 texture_under = ExtResource("11_6vnql")
-texture_over = ExtResource("9_hrdq3")
+texture_over = ExtResource("13_ddimx")
 texture_progress = ExtResource("10_pcunl")
 texture_progress_offset = Vector2(77, 9)
 
@@ -137,3 +147,6 @@ texture_progress_offset = Vector2(6, 9)
 
 [connection signal="timeout" from="Node/chairPlayer/SpinTimer" to="Node/chairPlayer" method="_on_spin_timer_timeout"]
 [connection signal="timeout" from="Node/chairPlayer/AttackTimer" to="Node/chairPlayer" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Node/chairPlayer/EndBoostTimer" to="Node/chairPlayer" method="_on_end_boost_timer_timeout"]
+[connection signal="timeout" from="Node/chairPlayer/StaminaBarTimer" to="Node/chairPlayer" method="_on_stamina_bar_timer_timeout"]
+[connection signal="timeout" from="Node/chairPlayer/InvulnFrames" to="Node/chairPlayer" method="_on_invuln_frames_timeout"]

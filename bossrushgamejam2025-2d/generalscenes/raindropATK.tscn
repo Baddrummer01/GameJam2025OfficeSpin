@@ -1,56 +1,62 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1cgx30lv4sug"]
+[gd_scene load_steps=9 format=3 uid="uid://b1cgx30lv4sug"]
 
 [ext_resource type="Texture2D" uid="uid://b88m81c6qwjjc" path="res://Level1/umbrellaAttackSprites.png" id="1_sjdl0"]
+[ext_resource type="Script" path="res://generalscenes/raindrop_atk.gd" id="2_kq6wc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o153j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jnr4"]
 atlas = ExtResource("1_sjdl0")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1soko"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnk6g"]
 atlas = ExtResource("1_sjdl0")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e52g4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7hqb"]
 atlas = ExtResource("1_sjdl0")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cys51"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6kg0"]
 atlas = ExtResource("1_sjdl0")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7goh2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kmb6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o153j")
+"texture": SubResource("AtlasTexture_1jnr4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1soko")
+"texture": SubResource("AtlasTexture_lnk6g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e52g4")
+"texture": SubResource("AtlasTexture_n7hqb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cys51")
+"texture": SubResource("AtlasTexture_u6kg0")
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y6l7j"]
-radius = 13.0384
+[sub_resource type="CircleShape2D" id="CircleShape2D_dth34"]
+radius = 4.0
 
-[node name="raindropProjectile" type="RigidBody2D"]
-gravity_scale = 0.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 5
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_7goh2")
+sprite_frames = SubResource("SpriteFrames_1kmb6")
 autoplay = "default"
-frame_progress = 0.344358
+frame_progress = 0.33397
+script = ExtResource("2_kq6wc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_y6l7j")
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_dth34")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
